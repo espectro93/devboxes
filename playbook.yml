@@ -67,6 +67,7 @@
     - snap
   - role: java
     tags:
+    - shell
     - dev
     - java
     - jdk
@@ -109,8 +110,9 @@
     tags:
     - backup
     - restic
-  - role: hid_apple
+  - role: awscli
     tags:
-    - apple
-    - keyboard
-    - hid_apple
+    - shell
+  - role: rust
+    tags:
+    - shell

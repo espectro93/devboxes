@@ -1,0 +1,11 @@
+- name: Download rustup installer
+  get_url: 
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip dest=/tmp/awscli-installer.sh
+    
+- name: Execute the rustup-installer.sh
+  shell: cd tmp && unzip awscli-installer.sh && ./aws/install
+
+- name: Remove the rustup-installer.sh
+  file: 
+    path: /tmp/awscli-installer.sh
+    state: absent

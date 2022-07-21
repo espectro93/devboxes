@@ -1,0 +1,11 @@
+- name: Download rustup installer
+  get_url: 
+    url: https://sh.rustup.rs dest=/tmp/rustup-installer.sh
+    
+- name: Execute the rustup-installer.sh
+  shell: /tmp/rustup-installer.sh -y
+
+- name: Remove the rustup-installer.sh
+  file: 
+    path: /tmp/rustup-installer.sh 
+    state: absent
