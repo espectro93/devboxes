@@ -85,6 +85,11 @@
     dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     update: no
 
+- name: Install zsh-nvm
+  git:
+    repo: https://github.com/lukechilds/zsh-nvm.git
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-nvm
+
 - name: Install powerlevel10k theme
   git:
     repo: https://github.com/romkatv/powerlevel10k

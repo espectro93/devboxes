@@ -1,9 +1,6 @@
 - name: Install go 1.16 (Linux)
   become: yes
-  snap:
-    classic: yes
-    channel: 1.16/stable
-    name: go
+  shell: rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.4.linux-amd64.tar.gz
   when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux"
 
 - name: Install go and required tools (MacOSX)

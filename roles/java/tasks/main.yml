@@ -12,14 +12,3 @@
   file: 
     path: /tmp/sdk-installer.sh 
     state: absent
-
-- name: Create java-env plugin directory
-  file:
-    path: ~/.oh-my-zsh/custom/plugins/java-env
-    state: directory
-
-- name: Link java-env plugin
-  file:
-    src: "{{ playbook_dir }}/config/oh-my-zsh-plugins/java-env.plugin.zsh"
-    dest: ~/.oh-my-zsh/custom/plugins/java-env/java-env.plugin.zsh
-    state: link

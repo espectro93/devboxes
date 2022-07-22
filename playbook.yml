@@ -62,9 +62,6 @@
     - ops
     - tools
     - vagrant
-  - role: snap
-    tags:
-    - snap
   - role: java
     tags:
     - shell

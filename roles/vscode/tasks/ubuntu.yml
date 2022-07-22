@@ -1,8 +1,3 @@
-- name: Remove old snap installation (Ubuntu)
-  snap:
-    name: code
-    state: absent
-
 - name: Install vscode gpg key (Ubuntu)
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc

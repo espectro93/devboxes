@@ -1,9 +1,6 @@
 - name: Install vscode (Arch)
   become: yes
-  snap:
-    name: code
-    classic: yes
-    state: present
+  shell: git clone https://aur.archlinux.org/visual-studio-code-bin.git && cd visual-studio-code-bin && makepkg -si 
   when: ansible_distribution == "Archlinux"
 
 - name: Install vscode (Ubuntu)
@@ -19,14 +16,12 @@
 - name: install vscode extensions
   command: "code --install-extension '{{ item }}'"
   with_items:
-  - ms-kubernetes-tools.vscode-kubernetes-tools
   - ms-azuretools.vscode-docker
   - EditorConfig.EditorConfig
   - dbaeumer.vscode-eslint
   - esbenp.prettier-vscode
   - vscoss.vscode-ansible
   - k--kato.intellij-idea-keybindings
-  - marcostazi.vs-code-vagrantfile
   - jebbs.plantuml
   - msjsdiag.debugger-for-chrome
   - ms-vsliveshare.vsliveshare
