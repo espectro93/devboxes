@@ -4,4 +4,4 @@
     name: 
     - restic
     - nfs-common
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'

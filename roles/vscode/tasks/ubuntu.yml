@@ -1,12 +1,12 @@
-- name: Install vscode gpg key (Ubuntu)
+- name: Install vscode gpg key (Ubuntu/Mint)
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
 
-- name: Install vscode apt repository (Ubuntu)
+- name: Install vscode apt repository (Ubuntu/Mint)
   apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
 
-- name: Install vscode package (Ubuntu)
+- name: Install vscode package (Ubuntu/Mint)
   apt:
     name: code
 

@@ -24,6 +24,6 @@
     state: absent
   when: terraform.stat.exists == False
 
-- name: Install Terraform Switcher
+- name: Execute the switcher.sh
   become: yes
-  script: curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
+  shell: curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | sh

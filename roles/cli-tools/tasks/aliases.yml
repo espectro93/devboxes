@@ -1,4 +1,5 @@
 - name: Download docker_aliases
+  become: yes
   get_url:
     url: "https://github.com/schnatterer/docker-aliases/releases/download/{{ docker_aliases_version }}/default.docker-aliases"
     dest: ~/.docker_aliases

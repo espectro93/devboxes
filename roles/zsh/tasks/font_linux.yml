@@ -25,13 +25,13 @@
   shell: gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:{{ profile.stdout }}/" font "FuraCode Nerd Font Medium 11"
   when: font.changed
 
-- name: Install powerline font (Ubuntu)
+- name: Install powerline font (Ubuntu/Mint)
   become: yes
   apt: 
     name: 
     - powerline
     - fonts-powerline
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install powerline font (Arch)
   become: yes

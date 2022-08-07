@@ -6,13 +6,13 @@
     - git-crypt
   when: ansible_distribution == "Archlinux"
 
-- name: Install git related tools (Ubuntu)
+- name: Install git related tools (Ubuntu/Mint)
   become: yes
   apt:
     name: 
     - git
     - git-crypt
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install git (MacOSX)
   homebrew:
@@ -22,17 +22,17 @@
     - gh
   when: ansible_distribution == "MacOSX"
 
-- name: Check gh client version (Ubuntu)
+- name: Check gh client version (Ubuntu/Mint)
   shell: gh --version | head -1 | awk '{print $3}'
   register: gh
   changed_when: False
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
-- name: Install GitHub Client (Ubuntu)
+- name: Install GitHub Client (Ubuntu/Mint)
   become: yes
   apt:
     deb: https://github.com/cli/cli/releases/download/v{{ gh_version }}/gh_{{ gh_version }}_linux_amd64.deb
-  when: ansible_distribution == "Ubuntu" and gh.stdout != gh_version
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint' and gh.stdout != gh_version
 
 - name: Check if diff-so-fancy is installed
   stat:

@@ -1,14 +1,14 @@
-- name: Capture bat version (Ubuntu)
+- name: Capture bat version (Ubuntu/Mint)
   shell: bat --version | awk '{print $2}'
   register: bat
   changed_when: False
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
-- name: Install bat (Ubuntu)
+- name: Install bat (Ubuntu/Mint)
   become: yes
   apt:
     deb: https://github.com/sharkdp/bat/releases/download/v{{ bat_version }}/bat_{{ bat_version }}_amd64.deb
-  when: ansible_distribution == "Ubuntu" and bat.stdout != bat_version
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint' and bat.stdout != bat_version 
 
 - name: Install bat (Arch)
   become: yes

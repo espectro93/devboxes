@@ -1,4 +1,4 @@
-- name: Install cli tools from repository (Ubuntu)
+- name: Install cli tools from repository (Ubuntu/Mint)
   become: yes
   apt:
     name:
@@ -11,7 +11,7 @@
     - subversion
     - jq
     - ncdu
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install cli tools from repository (Arch)
   become: yes
@@ -39,9 +39,7 @@
     - curl
     - subversion
     - jq
-    - gotop
     - ctop
-    - cfssl
     - gopass
     - vegeta
     - ncdu
@@ -50,25 +48,13 @@
 - name: Install bat
   include: bat.yml
 
-- name: Install gotop
-  include: gotop.yml
-  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux"
-
 - name: Install ctop
   include: ctop.yml
-  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux"
-
-- name: Install cfssl
-  include: cfssl.yml
-  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux"
-
-- name: Install gopass
-  include: gopass.yml
-  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux"
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install vegeta
   include: vegeta.yml
-  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux"
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Archlinux" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install aliases
   include: aliases.yml

@@ -49,6 +49,8 @@ sudo apt-get update
 sudo apt-get install ansible
 ```
 
+change shell after playbook run: sudo chsh -s /usr/bin/zsh $USER
+
 ### Manjaro
 
 Install ansible `sudo pacman -S ansible`

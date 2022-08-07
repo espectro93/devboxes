@@ -4,9 +4,9 @@
     name: docker
   when: ansible_distribution == "Archlinux"
 
-- name: Install docker (Ubuntu)
+- name: Install docker (Ubuntu/Mint)
   include: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Start and enable docker daemon
   become: yes
@@ -37,11 +37,4 @@
   get_url:
     url: https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ kernel.stdout }}-{{ machine.stdout }}
     dest: /usr/local/bin/docker-compose
-    mode: '0755'
-
-- name: Install docker-machine
-  become: yes
-  get_url:
-    url: https://github.com/docker/machine/releases/download/v{{ machine_version }}/docker-machine-{{ kernel.stdout }}-{{ machine.stdout }}
-    dest: /usr/local/bin/docker-machine
     mode: '0755'

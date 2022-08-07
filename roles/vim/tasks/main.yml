@@ -4,11 +4,11 @@
     name: vim
   when: ansible_distribution == "Archlinux"
 
-- name: Install vim (Ubuntu)
+- name: Install vim (Ubuntu/Mint)
   become: yes
   apt:
     name: vim
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install vim (MacOSX)
   homebrew:

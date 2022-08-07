@@ -1,25 +1,28 @@
-- name: Install docker gpg key (Ubuntu)
+
+- name: Install prerequisites for Docker repository
+  become: yes
+  apt:
+    name: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg2', 'software-properties-common']
+    update_cache: yes
+
+- name: Install docker gpg key (Ubuntu/Mint)
   become: yes
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
 
-- name: Capture lsb release (Ubuntu)
+- name: Capture lsb release (Ubuntu/Mint)
   shell: lsb_release -cs
   register: lsbrelease
   changed_when: False
 
-- name: Remove docker test apt repository (Ubuntu)
+- name: Remove docker test apt repository (Ubuntu/Mint)
   become: yes
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsbrelease.stdout }} test
     state: absent
 
-- name: Install docker stable apt repository (Ubuntu)
-  become: yes
-  apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsbrelease.stdout }} stable
-
-- name: Install docker-ce package (Ubuntu)
+- name: Install docker (Ubuntu/Mint)
   become: yes
   apt:
-    name: docker-ce
+    name: docker.io
+    state: present

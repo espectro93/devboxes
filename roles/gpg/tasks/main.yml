@@ -4,14 +4,14 @@
     name: gnupg
   when: ansible_distribution == "Archlinux"
 
-- name: Install gpg (Ubuntu)
+- name: Install gpg (Ubuntu/Mint)
   become: yes
   apt:
     name: 
     - gnupg
     - pcscd
     - scdaemon
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install gpg (MacOSX)
   homebrew:

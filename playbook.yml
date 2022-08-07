@@ -10,10 +10,6 @@
     tags:
     - zsh
     - shell
-  - role: tmux
-    tags:
-    - shell
-    - tmux
   - role: vim
     tags:
     - shell
@@ -23,11 +19,6 @@
     - shell
     - gpg
     - gnupg
-  - role: mercurial
-    tags:
-    - shell
-    - mercurial
-    - hg
   - role: cli-tools
     tags:
     - shell
@@ -40,28 +31,11 @@
     - docker-machine
     - ops
     - container
-  - role: packer
-    tags:
-    - ops
-    - tools
-    - packer
   - role: terraform
     tags:
     - ops
     - tools
     - terraform
-  - role: virtualbox
-    tags:
-    - ops
-    - tools
-    - virtualbox
-    - vms
-    - vbox
-  - role: vagrant
-    tags:
-    - ops
-    - tools
-    - vagrant
   - role: java
     tags:
     - shell
@@ -73,22 +47,6 @@
     - dev
     - go
     - golang
-  - role: node
-    tags:
-    - dev
-    - node
-    - nodejs
-    - js
-    - javascript
-  - role: k8s
-    tags:
-    - ops
-    - k8s
-    - kubernetes
-    - helm
-    - draft
-    - gcloud
-    - gke
   - role: vscode
     tags:
     - dev
@@ -97,9 +55,6 @@
     tags:
     - dev
     - idea
-  - role: recording
-    tags:
-    - recording
   - role: trivy
     tags:
     - trivy
@@ -107,7 +62,7 @@
     tags:
     - backup
     - restic
-  - role: awscli
+  - role: aws
     tags:
     - shell
   - role: rust

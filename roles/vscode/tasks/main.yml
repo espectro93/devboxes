@@ -6,7 +6,7 @@
 - name: Install vscode (Ubuntu)
   become: yes
   include: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or ansible_facts['distribution'] == 'Linux Mint'
 
 - name: Install vscode (MacOSX)
   homebrew_cask:
@@ -20,11 +20,8 @@
   - EditorConfig.EditorConfig
   - dbaeumer.vscode-eslint
   - esbenp.prettier-vscode
-  - vscoss.vscode-ansible
   - k--kato.intellij-idea-keybindings
   - jebbs.plantuml
   - msjsdiag.debugger-for-chrome
-  - ms-vsliveshare.vsliveshare
-  - arcticicestudio.nord-visual-studio-code
   register: vscode_result
   changed_when: "'already installed' not in vscode_result.stdout"

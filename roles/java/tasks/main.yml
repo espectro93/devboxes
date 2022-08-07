@@ -1,14 +1,3 @@
 - name: Download SDKMAN installer
-  get_url: 
-    url: https://get.sdkman.io dest=/tmp/sdk-installer.sh
-    
-- name: Execute the sdk-installer.sh
-  shell: /tmp/sdk-installer.sh
-
-- name: Install java
-  shell: sdk install java 17.0.4-zulu
-
-- name: Remove the sdk-installer.sh
-  file: 
-    path: /tmp/sdk-installer.sh 
-    state: absent
+  become: yes
+  shell: curl -s "https://get.sdkman.io" | bash
