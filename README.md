@@ -70,5 +70,5 @@ See [playbook](playbook.yml) for existing tags.
 
 ## Todo
 
-- [ ] Automatically Git Updates
-- [ ] Role chooser
+- reintegrate mac and manjaro
+- add okular and postman
